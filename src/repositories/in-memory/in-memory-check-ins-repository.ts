@@ -7,6 +7,11 @@ export class InMemoryCheckInsRepository implements CheckInsRespository {
   // Sem Promisse para o Prisma utilizando o model User
 
   public items: CheckIn[] = []
+
+  async countByUserId(userId: string) {
+    return this.items.filter((item) => item.user_id === userId).length
+  }
+
   async create(data: Prisma.CheckInUncheckedCreateInput) {
     const checkIn = {
       id: randomUUID(),
