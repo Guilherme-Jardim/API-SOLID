@@ -40,7 +40,7 @@ export class InMemoryGymsRepository implements GymsRespository {
   create(data: Prisma.GymCreateInput): Promise<Gym> {
     return new Promise((resolve) => {
       const gym = {
-        id: randomUUID(),
+        id: data.id ?? randomUUID(),
         title: data.title,
         description: data.description ?? null,
         phone: data.phone ?? null,
