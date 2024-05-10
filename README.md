@@ -83,3 +83,45 @@ D - Dependency Inversion Principle (Princípio da inversão de dependência).
 
 ## PORT ERROR AND POSTGRESQL ERROR
 -- https://www.youtube.com/watch?v=m8_15PdJAQc
+
+# Autenticação JWT (JSON Web Token)
+
+## O que é JWT?
+
+JWT é um padrão (RFC 7519) que define como transmitir informações seguras entre duas partes através de um objeto JSON. Essas informações são verificadas e confiáveis porque são assinadas digitalmente.
+
+## Como funciona a autenticação JWT?
+
+A autenticação JWT segue um fluxo específico:
+
+1. **Login do usuário**: O usuário envia suas credenciais (normalmente e-mail e senha) para o servidor. Por exemplo, o usuário pode fazer uma solicitação POST para a rota `/login` com um corpo de solicitação como este:
+```json
+{
+  "email": "usuario@exemplo.com",
+  "senha": "senha123"
+}
+```
+2. **Criação do Token**: Se as credenciais forem válidas, o servidor cria um token JWT único e não modificável. Este token é stateless, o que significa que não é armazenado em nenhuma estrutura de persistência de dados (como um banco de dados).
+
+  Palavra-chave: Ao criar o token, o servidor usa uma palavra-chave secreta. Esta palavra-chave é usada para assinar o token e garantir que ele não seja modificado após a criação. Por exemplo, a palavra-chave pode ser uma string aleatória como krfhiurfwheiofowcihehtu43i21ugf892dfiuedshcjhwqjherio2uq.
+
+  E-mail/Senha → header.payload.sign: As credenciais do usuário são codificadas em um token JWT. O token consiste em três partes: cabeçalho (header), carga útil (payload) e assinatura (sign).
+
+  Login ⇒ JWT: Após o login bem-sucedido, o servidor retorna o JWT para o usuário. Isso pode ser feito através do corpo da resposta ou como um cookie.
+
+  JWT ⇒ Todas requisições dali pra frente: O usuário deve incluir o JWT em todas as requisições subsequentes. Isso permite que o servidor verifique a identidade do usuário sem precisar pedir as credenciais novamente.
+
+3. **Autorização**: O token JWT é enviado no cabeçalho de autorização de cada requisição. O formato é: Authorization: Bearer JWT. Aqui está um exemplo de como isso pode parecer em uma solicitação HTTP:
+```json
+{
+  "method": "GET",
+  "url": "/api/recurso",
+  "headers": {
+    "Host": "exemplo.com",
+    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+  }
+}
+```
+
+
+
