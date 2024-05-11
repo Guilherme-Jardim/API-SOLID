@@ -1,4 +1,4 @@
-import { CheckInsRespository } from '@/repositories/check-ins-repository'
+import { CheckInsRepository } from '@/repositories/check-ins-repository'
 
 interface GetUserMetricsUseCaseRequest {
   userId: string
@@ -9,7 +9,7 @@ interface GetUserMetricsUseCaseResponse {
 }
 
 export class GetUserMetricsUseCase {
-  constructor(private checkInsRepository: CheckInsRespository) {}
+  constructor(private checkInsRepository: CheckInsRepository) {}
 
   async execute({
     userId,

@@ -4,8 +4,10 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 export default defineConfig({
   plugins: [tsconfigPaths()],
   test: {
-    coverage: {
-      provider: 'v8',
-    },
+    environmentMatchGlobs: [['src/http/controllers/**', 'prisma']],
+    dir: 'src',
+    // coverage: {
+    //   provider: 'v8',
+    // },
   },
 })
