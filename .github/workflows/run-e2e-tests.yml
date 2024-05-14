@@ -10,7 +10,6 @@ jobs:
     services:
       postgres:
         image: bitnami/postgresql
-        restart: always
         ports:
           - 5434:5432
         env:
