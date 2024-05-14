@@ -23,16 +23,16 @@ Gympass style app.
 - [x] O usuário não pode fazer 2 check-ins no memso dia;
 - [x] O usuário não pode fazer check-in se não estiver perto (100m) da academia;
 - [x] O check-in só pode ser validade até 20 minutos após criado;
-- [ ] O check-in só pode ser validado por administradores;
-- [ ] A academia só pode ser cadastrada por administradores;
+- [x] O check-in só pode ser validado por administradores;
+- [x] A academia só pode ser cadastrada por administradores;
 
 ## RNFs (Requisitos não-funcionais)
 - São requisitos técnicos onde o usuário não tem controle sobre eles.
 
 - [x] A senha do usuário precisa estar criptografada;
 - [x] Os dados da aplicação precisam estar persistidos em um banco PostgreSQL;
-- [ ] Todas listas de dados precisam estar paginadas com 20 itens por página;
-- [ ] O usuário deve ser itentificado porum JWT (JSON Web Token);
+- [x] Todas listas de dados precisam estar paginadas com 20 itens por página;
+- [x] O usuário deve ser itentificado porum JWT (JSON Web Token);
 
 ## O que é TDD
 - TDD é uma sigla para Test Driven Development, ou Desenvolvimento Orientado a Testes. A ideia do TDD é que você trabalhe em ciclos.
