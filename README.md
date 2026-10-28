@@ -1,3 +1,39 @@
+# API SOLID
+
+API de uma aplicação estilo Gympass, feita com Node.js, Fastify, Prisma e PostgreSQL. Fiz para praticar SOLID, casos de uso, repositórios (em memória e Prisma), JWT com refresh token e testes unitários e e2e.
+
+## Arquitetura
+
+- `src/use-cases`: regras de negócio, testadas com repositórios em memória
+- `src/repositories`: interfaces, implementação em memória e implementação com Prisma
+- `src/http`: controllers, rotas e middlewares (JWT e perfil do usuário)
+- `prisma/`: schema, migrations e o ambiente de teste que cria um schema novo por arquivo e2e
+
+## Como instalar
+
+```bash
+npm install
+cp .env.example .env
+docker compose up -d
+npx prisma migrate deploy
+```
+
+## Como rodar
+
+```bash
+npm run dev            # desenvolvimento
+npm run build && npm start
+```
+
+## Testes
+
+```bash
+npm test               # unitários (não precisam de banco)
+npm run test:e2e       # e2e (precisam do Postgres do docker compose)
+```
+
+---
+
 # App
 
 Gympass style app.

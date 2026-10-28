@@ -1,9 +1,9 @@
 import { Gym, Prisma } from '@prisma/client'
-import { FindManyNearbyParams, GymsRespository } from '../gyms-repository'
+import { FindManyNearbyParams, GymsRepository } from '../gyms-repository'
 import { randomUUID } from 'crypto'
 import { getDistanceBetweenCoordinates } from '@/utils/get-distance-between-coordinates'
 
-export class InMemoryGymsRepository implements GymsRespository {
+export class InMemoryGymsRepository implements GymsRepository {
   public items: Gym[] = []
 
   async findById(id: string) {

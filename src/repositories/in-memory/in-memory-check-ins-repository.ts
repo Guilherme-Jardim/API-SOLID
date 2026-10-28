@@ -1,9 +1,9 @@
 import { Prisma, CheckIn } from '@prisma/client'
-import { CheckInsRespository } from '../check-ins-repository'
+import { CheckInsRepository } from '../check-ins-repository'
 import { randomUUID } from 'node:crypto'
 import dayjs from 'dayjs'
 
-export class InMemoryCheckInsRepository implements CheckInsRespository {
+export class InMemoryCheckInsRepository implements CheckInsRepository {
   async save(checkIn: CheckIn) {
     const checkInIndex = this.items.findIndex((item) => item.id === checkIn.id)
 

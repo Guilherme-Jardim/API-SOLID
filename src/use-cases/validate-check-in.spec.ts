@@ -1,7 +1,7 @@
 import { expect, describe, it, beforeEach, vi, afterEach } from 'vitest'
 import { InMemoryCheckInsRepository } from '@/repositories/in-memory/in-memory-check-ins-repository'
 import { ValidateCheckInUseCase } from './validate-check-in'
-import { CheckInsRespository } from '../repositories/check-ins-repository'
+import { CheckInsRepository } from '../repositories/check-ins-repository'
 import { ResourceNotFoundError } from './errors/resource-not-found-error'
 
 let checkInsRepository: InMemoryCheckInsRepository

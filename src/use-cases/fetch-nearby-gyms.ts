@@ -1,5 +1,5 @@
 import { Gym } from '@prisma/client'
-import { GymsRespository } from '@/repositories/gyms-repository'
+import { GymsRepository } from '@/repositories/gyms-repository'
 
 interface FetchNearbygymsUseCaseRequest {
   userLatitude: number
@@ -11,7 +11,7 @@ interface FetchNearbygymsUseCaseResponse {
 }
 
 export class FetchNearbygymsUseCase {
-  constructor(private gymsRepository: GymsRespository) {}
+  constructor(private gymsRepository: GymsRepository) {}
 
   async execute({
     userLatitude,
